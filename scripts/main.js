@@ -12,6 +12,7 @@
 function handValue(hand) {
   var handArray = [];
   var handTotal = 0;
+  // loop through the hand to determine each card value
   hand.forEach(hand => {
     if (isNaN(hand) == false) {
       handArray.push(hand);
@@ -21,9 +22,11 @@ function handValue(hand) {
       handArray.push('10');
     }
   });
+  //add up the hand total
   for (var i = 0; i < handArray.length; i++) {
     handTotal += Number(handArray[i]);
   }
+  //do while loop for handling aces, which can be 1 or 11
   do {
     if (handTotal > 21 && hand.includes('A')) {
       handTotal = handTotal - 10;
